@@ -2431,12 +2431,17 @@ com.huub.everyday
 us.sliide.firstrewards
 com.pz.life.android
 br.com.original.bank
+fr.fdj.enligne
 com.upjers.stonies
 com.winern.android
+com.didilabs.kaavefali
+com.ArviGuru.Transformation3D
 com.neulion.smartphone.ufc.android
 com.mailtime.android
 659694038
 com.fubugames.killerroomba
+survival.island.adventure
+saving.lady.logic.puzzles
 uni.UNI3070081
 io.zerolimits.klever
 com.saucey
@@ -2476,6 +2481,8 @@ com.digital.spice.Games24
 com.dla.android
 com.ebay.gumtree.za
 com.aofl.adventureacademy
+hero.tower.battle
+com.bosco.boscoApp
 abs.workout.fitness.tabata.hiit.stomach
 com.hts.ams
 com.global.ztmslg
@@ -2542,6 +2549,7 @@ amazon.avod.thirdpartyclient
 org.zwanoo.android.speedtest
 com.bandagames.miner
 co.thefabulous.app
+com.el_grocer.shopper
 com.balaji.alt
 com.ea.gp.candcwarzones
 fr.casino.fidelite
@@ -2573,6 +2581,7 @@ taptica.com
 com.totaltrivia
 in.crossy.daily_crossword&hl=en_IN
 app/id447553564
+com.hyperfutura.clumsyknight
 com.stitchfix.stitchfix
 com.abradoodle.bingo
 jp.gree.android.pf.greeapp53190
@@ -2580,6 +2589,7 @@ com.gv.dn.en
 addison-lee-london-minicabs/id718312937
 com.bf.sgscqOverseas
 com.treebo.starscream
+com.ilyon.tiles
 sports.caliente.com.calientedeportes
 com.ilovemobilegame.ggplay.gcldkr
 com.quikr
@@ -2611,11 +2621,22 @@ com.google.stadia.android
 com.socialquantum.acityint
 1199075455
 com.littleengine.wordpal
+com.gameduell.gin.rummy.card.game
 pizza.de-essen-bestellen/id374905857
 air.com.flowplay.VegasWorld
+com.gamesys.megawayscasino
+jp.furyu.poppingblock
 com.mobile.justmop
+power.pop.blast
 com.Effitek.quovadev.keplerk
+com.higgs.tilemaster3d
+com.miHoYo.GenshinImpact
 upgames.pokerup.android
+train.railroad.climb.simulator
+com.akronbeaconjournal.android.prod
+com.gatehousemedia.id3049
+com.unicostudio.trickywords
+com.RHPOSITIVE.squbedarkness
 com.huub.thefeed
 com.thestate.android
 testapp.test
@@ -2623,6 +2644,7 @@ com.golemon.wegoo.funny
 com.stockwall.android
 com.juanhand.fast.cash.peso.loan.app
 com.gopaysense.android.boost
+com.qidafcl.sl054
 com.bigtoken.consumer
 com.rabbit.dragonrace
 ru.mobstudio.andgalaxy
@@ -2714,8 +2736,10 @@ com.mega.app
 com.shopnet.app
 br.delivery
 it.q8.app.clubq8
+com.gatehousemedia.id3103
 com.yougov.mobile.online
 com.veraxen.colorbynumber.oilpainting
+com.games.cookiecarver
 com.nordeus.goldenboot
 com.gannett.local.library.news.app
 com.fullfat.textordie
@@ -2731,7 +2755,9 @@ com.bitso.wallet
 desoft.onus.user
 com.tomtom.gplay.navapp
 com.HBO
+com.griffon.online.casino
 com.horoscope.facesecret
+com.higgs.cubemaster3d
 mx.com.shopnet
 com.skilliworld.skilli
 org.airpage.callback
@@ -2984,6 +3010,7 @@ com.fluffyfairygames.idlefactorytycoon
 com.vlv.aravali
 creamfinance.com.nativeapp
 com.dc.hwsj
+com.pepsicoconsumer.halftime
 com.inomera.sm
 com.callhero.stop_robocall_spam_call
 com.nedl.app
@@ -3026,6 +3053,7 @@ puzzle-dragons-english/id563474464
 id385266473
 br.com.netcombo.now
 com.tripledot.blackjack
+com.pandats.evest
 com.doubledowninteractive.ftknox
 com.gramgames.farmest
 com.LDRLY.budfarmidletycoon
@@ -3034,6 +3062,7 @@ co.micab.gleek.passenger
 com.synapse.alarm.daywise
 test.com
 com.superbetter.paid
+com.tetherstudios.bubble
 com.shutterstock.contributor
 com.shutterstock.consumer
 com.dena.a12026418
@@ -3230,6 +3259,7 @@ com.netqin.ps
 http://track.furthermobi.com/aff_c?offer_id=6573&aff_id=7559
 com.app.zorooms
 lyft-taxi-bus-app-alternative/id529379082
+com.bitoasis
 org.dayup.stocks
 xyz.kwai.lolita.memes
 com.ringpara.main

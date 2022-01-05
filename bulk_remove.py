@@ -1,9 +1,11 @@
 import subprocess
 
+#com.expressvpn.vpn
 
 def main():
     devices = read_devices()
     package_list = []
+    uninstall_list = []
     count = 0
     print("Please select option: \n")
     for device in devices:
@@ -12,53 +14,27 @@ def main():
     print("[", count, "] For all")
     try:
         choice = int(input(""))
+        #choice = 0
         if choice == count:
 
             for device in devices:
                 create_package_list(device)
-                file = open("packages.txt", "r")
-                for line in file:
-                    package_list.append(line)
-                file.close()
-                package_list = format_packages(package_list)
-                final_list = []
-                master_list = open("master-package-list.txt", "r")
-                for line in master_list:
-                    for x in package_list:
-                        if line.__contains__(x) and line != "" and line != " ":
-                            if x == "android" or x == "com.expressvpn.vpn":
-                                continue
-                            else:
-                                final_list.append(x)
+                uninstall_list = create_uninstall_list()
+                uninstall(device, uninstall_list)
 
-                print("Removing ", len(final_list), "apps")
-                final_list = format_packages(final_list)
-                uninstall(device, final_list)
+
+                #uninstall(device, final_list)
 
         elif count > choice >= 0:
 
             device = devices[choice]
             create_package_list(device)
-            file = open("packages.txt", "r")
-            for line in file:
-                package_list.append(line)
-            package_list = format_packages(package_list)
-            final_list = []
-            master_list = open("master-package-list.txt", "r")
-            for line in master_list:
-                for x in package_list:
-                    if line.__contains__(x):
-                        if x == "android" or x == "com.expressvpn.vpn":
-                            continue
-                        else:
-                            final_list.append(x)
-
-            print("Removing ", len(final_list), "apps")
-            final_list = format_packages(final_list)
-            uninstall(device, final_list)
+            uninstall_list = create_uninstall_list()
+            uninstall(device, uninstall_list)
         else:
             print("Invalid input")
-    except ValueError:
+    except Exception as e:
+        print(e)
         print("Invalid input")
 
 
@@ -71,6 +47,35 @@ def create_package_list(device):
     for line in p2.stdout.readlines():
         line = line.decode("utf-8", "ignore")
         print(line)
+
+
+#creates a list of apps to unsistall from devices
+def create_uninstall_list():
+    count = 0
+    package_on_device = open("packages.txt", "r")
+    master_package_file = open("master-package-list.txt", "r")
+    master_list = []
+    package_on_device_list = []
+    uninstall_list = []
+    for package in master_package_file.readlines():
+        #print(package)
+        master_list.append(package.split("\n")[0])
+    #print(len(master_list))
+    for x in package_on_device.readlines():
+        package_on_device_list.append(x.split("package:")[1].split("\n")[0])
+
+    package_on_device.close()
+    master_package_file.close()
+    for package in master_list:
+        for x in package_on_device_list:
+            #print("package = ", package, " x = ", x)
+            if package == x:
+
+                uninstall_list.append(x)
+
+    return uninstall_list
+
+
 
 
 # Formats the package file to better use adb uninstall command by splitting the package: and \n at end of file
