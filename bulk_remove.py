@@ -62,7 +62,8 @@ def create_uninstall_list():
         master_list.append(package.split("\n")[0])
     #print(len(master_list))
     for x in package_on_device.readlines():
-        package_on_device_list.append(x.split("package:")[1].split("\n")[0])
+        if(x != "\n"):
+            package_on_device_list.append(x.split("package:")[1].split("\n")[0])
 
     package_on_device.close()
     master_package_file.close()
