@@ -34,7 +34,7 @@ def main():
         else:
             print("Invalid input")
     except Exception as e:
-        print(e)
+        print(e.with_traceback())
         print("Invalid input")
 
 
@@ -53,26 +53,54 @@ def create_package_list(device):
 def create_uninstall_list():
     count = 0
     package_on_device = open("packages.txt", "r")
-    master_package_file = open("master-package-list.txt", "r")
-    master_list = []
+    sys_files = open('sys_files.txt', 'r')
+    #master_package_file = open("master-package-list.txt", "r")
+    #master_list = []
     package_on_device_list = []
+    sys_files_list = []
     uninstall_list = []
-    for package in master_package_file.readlines():
+    for package in sys_files.readlines():
         #print(package)
-        master_list.append(package.split("\n")[0])
+        if package.__contains__("\n"):
+            sys_files_list.append(package.split("\n")[0])
+        else:
+            sys_files_list.append(package)
+    sys_files.close()
     #print(len(master_list))
     for x in package_on_device.readlines():
         if(x != "\n"):
             package_on_device_list.append(x.split("package:")[1].split("\n")[0])
 
     package_on_device.close()
-    master_package_file.close()
-    for package in master_list:
-        for x in package_on_device_list:
-            #print("package = ", package, " x = ", x)
-            if package == x:
+    # master_package_file.close()
+    print('Creating uninstall list')
+    in_list = False
+    for y in package_on_device_list:
+        for x in sys_files_list:
+            if y == x or y == 'com.expressvpn.vpn' or y == 'com.apkpremier.app':
+                in_list = True
+        if in_list:
+            in_list = False
+            continue
+        else:
+            uninstall_list.append(y)
 
-                uninstall_list.append(x)
+        # print('y ', y)
+        # for package in sys_files_list:
+        #     #print("package = ", package, " x = ", x)
+        #     if y == package:
+        #         # print('DEBUG package = ', package)
+        #         # print('DEBUG x = ', x)
+        #         continue
+        #     elif y == 'com.expressvpn.vpn' or y in uninstall_list:
+        #
+        #         continue
+        #     else:
+        #         print('else ', package)
+        #         uninstall_list.append(y)
+    print(package_on_device_list)
+    print(sys_files_list)
+    print(uninstall_list)
 
     return uninstall_list
 
@@ -95,14 +123,27 @@ def format_packages(package_list):
 
 # Uses adb shell command to uninstall packages in the packages.txt and prints a messages at the end
 def uninstall(device, package_list):
+    print('Uninstalling apks')
     for package in package_list:
-        print("Uninstalling " + package)
-        shellcommand = "adb -s " + device + " uninstall " + package
-        p2 = subprocess.Popen(shellcommand, stdout=subprocess.PIPE,
-                              stderr=None, shell=True)
-        for line in p2.stdout.readlines():
-            line = line.decode("utf-8", "ignore")
-            print(line)
+        sys_files = open('sys_files.txt', 'r')
+
+        if package not in sys_files.read():
+            print(package)
+            print("Uninstalling " + package)
+            shellcommand = "adb -s " + device + " uninstall " + package
+            p2 = subprocess.Popen(shellcommand, stdout=subprocess.PIPE,
+                                  stderr=None, shell=True)
+            for line in p2.stdout.readlines():
+                line = line.decode("utf-8", "ignore")
+                print(line)
+
+                if 'Failure [DELETE_FAILED_INTERNAL_ERROR]' in line or 'Failure [DELETE_FAILED_INTERNAL_ERROR]' in \
+                        line or 'Failure [DELETE_FAILED_DEVICE_POLICY_MANAGER]' in line\
+                        or 'Failure [DELETE_FAILED_OWNER_BLOCKED]' in line:
+                    # sys_files = open('sys_files.txt', 'a')
+                    # sys_files.write(package + '\n')
+                    print("Error #############################################", package)
+        sys_files.close()
     print("\n####################\n####### Done #######\n####################\n")
 
 
